@@ -13,17 +13,21 @@ h3 {
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 0.2em;
+  font-size: 16px;
+  margin: 15px 0px;
 }
 
-.align-text-svg {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+h4 {
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 14px;
+  margin: 5px 0px;
 }
 
-button {
+button, .button {
   cursor: pointer;
-  background-color: white;
+  background-color: rgb(0,0,0,0);
   /* border: 2px solid #B55D3F; */
   border: 2px solid #91B53F;
   border-radius: 10px;
@@ -41,6 +45,7 @@ button {
   justify-content: center;
 }
 
+/* PRODUCT */
 .product {
   width: 250px;
   border: 1.5px solid lightgray;
@@ -49,8 +54,26 @@ button {
   padding: 20px;
 }
 
+.unstyled-link {
+  text-decoration: none;
+  color: black;
+}
+
+/* SALE ITEMS */
+.sale-item h4 {
+  color: #FFA52B;
+  font-weight: 900;
+}
+.sale-item svg {
+  vertical-align: sub;
+}
+.cross-out {
+  text-decoration: line-through;
+}
+
+/* CART ITEMS */
 .cart-item {
-  border-top: 2px dashed lightgray;
+  border-top: 2px dashed black;
 }
 
 .quantity-button-bar {
@@ -82,23 +105,33 @@ button {
   vertical-align: middle;
 }
 
+/* OUTER COMPONENTS */
 .app-container {
   display: flex;
   width: 100%;
   justify-content: space-evenly;
 }
 
-.align-center {
-  align-items: center;
-  justify-content: center;
-}
-
 #product-list {
   width: 60%;
+  min-width: 550px;
   display: flex;
   flex-wrap: wrap;
 }
 
 #shopping-cart {
   width: 35%;
+  background-color: #FCFFA4;
+}
+
+/* MISC FUNCTIONS */
+.align-text-svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.align-center {
+  align-items: center;
+  justify-content: center;
 }
