@@ -12,7 +12,7 @@ import { Link, withRouter } from "react-router-dom";
 // candle.jpeg
 // bugs_bunny.jpeg';
 // import "./images/";
-const requestImageFile = require.context('./images', true, /.jpeg$/);
+// const requestImageFile = require.context('./images', true, /.jpeg$/);
 
 class Product extends Component {
     constructor(props) {
@@ -68,6 +68,7 @@ class Product extends Component {
       // </Link>
       return (
          <div className="product">
+            <img src={this.props.item.image} className="product-img"></img>
             <Link to={{
               pathname: ("/product/" + this.props.item.name),
               state: {item: this.props.item}
@@ -84,4 +85,4 @@ class Product extends Component {
 
 }
 
-export default Product;
+export default withRouter(Product);
