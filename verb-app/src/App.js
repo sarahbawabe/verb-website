@@ -1,11 +1,12 @@
 // import logo from './logo.svg';
 import './App.css';
-import ProductList from "./ProductList.js";
+import Main from "./Main.js";
 import './style.css';
 import {
   BrowserRouter as Router,
 } from "react-router-dom";
 
+// import background from './images/background-01.png';
 import verb_pb from './images/verb_pb.jpeg';
 import verb_coco from './images/verb_coco.jpeg';
 import verb_rose from './images/verb_rose.jpeg';
@@ -15,25 +16,27 @@ import loaf from './images/loaf.jpeg';
 import hazel from './images/hazel.jpeg';
 import mug from './images/mug.jpeg';
 import candle from './images/candle.jpeg';
-//
-// verb_coco.jpeg
-// mug.jpeg
-// loaf.jpeg
-// ina.jpeg
-// hazel.jpeg
-// candle.jpeg
-// bugs_bunny.jpeg';
+
 
 const data = [
-  { name: "Verb Salted Peanut Butter", price: "1.95", image: verb_pb, description: "", sku: "#SB1475601", onSale: "False"},
-  { name: "Verb Coconut Chai", price: "1.95", image: verb_coco, description: "", sku: "#SB1475602", onSale: "False"},
-  { name: "Verb Strawberry Rose Hibiscus", price: "1.95", image: verb_rose, description: "", sku: "#SB1475604", onSale: "False"},
-  { name: "Bugs Bunny Sign", price: "5.75", image: bugs_bunny, description: "", sku: "#SB1475605", onSale: "False"},
-  { name: "Ina Garten's Modern Comfort Food", price: "35.00", image: ina, description: "", sku: "#SB1475606", onSale: "False"},
-  { name: "Lemon Poppy Seed Bread", price: "12.50", image: loaf, description: "", sku: "#SB1475607", onSale: "True"},
-  { name: "'Hydro Hazel' (The Hydroponic Basil)", price: "14.25", image: hazel, description: "", sku: "#SB1475608", onSale: "True"},
-  { name: "Yellow Tea Cup", price: "5.45", image: mug, description: "", sku: "#SB1475609", onSale: "True"},
-  { name: "Peace & Tranquility Candle", price: "21.95", image: candle, description: "", sku: "#SB1475603", onSale: "False"}
+  { name: "Verb Salted Peanut Butter", price: "1.50", image: verb_pb,
+    description: "You (peanut) butter believe this bar is good.", sku: "SB1475601", onSale: "False"},
+  { name: "Verb Coconut Chai", price: "1.50", image: verb_coco,
+    description: "You'll go (coco)NUTTY when you try this bar. Mmmm-mmm.", sku: "SB1475602", onSale: "False"},
+  { name: "Verb Strawberry Rose Hibiscus", price: "1.50", image: verb_rose,
+    description: "One could say, this bar is berry good.", sku: "SB1475604", onSale: "False"},
+  { name: "Bugs Bunny Sign", price: "5.75", image: bugs_bunny,
+    description: "Heyyyyy what's up, doc? In ~vintage~.", sku: "SB1475605", onSale: "False"},
+  { name: "Ina Garten's Modern Comfort Food", price: "35.00", image: ina,
+    description: "A true cooking wizard. 11/10 would recommend the tomato soup recipe.", sku: "SB1475606", onSale: "False"},
+  { name: "Lemon Poppy Seed Bread", price: "12.50", image: loaf,
+    description: "You know what they say... when life gives you lemons, make lemon poppy seed bread!", sku: "SB1475607", onSale: "True"},
+  { name: "\"Hydro Hazel\" (The Hydroponic Basil)", price: "14.25", image: hazel,
+    description: "Hydro Hazel the Hydroponic Basil never fails to impress with her superior aquatic watering system.", sku: "SB1475608", onSale: "True"},
+  { name: "Yellow Tea Cup", price: "5.45", image: mug,
+    description: "This cup is pret-tea cool.", sku: "SB1475609", onSale: "True"},
+  { name: "Peace & Tranquility Candle", price: "21.95", image: candle,
+    description: "In the words of Joe Jonas, this candle is \"burnin' up\".", sku: "SB1475603", onSale: "False"}
 ];
 
 // const data = [
@@ -73,10 +76,8 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <ProductList list={data}/>
-
+        <Main list={data}/>
       </Router>
-
     </div>
   );
 }
