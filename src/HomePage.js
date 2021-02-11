@@ -36,19 +36,22 @@ class HomePage extends Component {
       });
 
       return (
-        <div className="app-container">
-          <div id="product-list">
-            {items}
+        <span>
+          <h1><strong>BAWABE, INC.</strong></h1>
+          <div className="app-container">
+            <div id="product-list">
+              {items}
+            </div>
+            <ShoppingCart
+              onCheckout="False"
+              cart={this.props.cart}
+              constants={this.props.constants}
+              quantities={this.props.quantities}
+              removeAllCB={this.removeAll.bind(this)}
+              addToCartCB={this.addToCart.bind(this)}
+              removeOneCB={this.removeOne.bind(this)}/>
           </div>
-          <ShoppingCart
-            onCheckout="False"
-            cart={this.props.cart}
-            constants={this.props.constants}
-            quantities={this.props.quantities}
-            removeAllCB={this.removeAll.bind(this)}
-            addToCartCB={this.addToCart.bind(this)}
-            removeOneCB={this.removeOne.bind(this)}/>
-        </div>
+        </span>
       );
     }
 }

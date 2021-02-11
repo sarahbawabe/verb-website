@@ -13,7 +13,7 @@ class CheckoutPage extends Component {
     render() {
       return (
         <div className="checkout-page">
-          <h1>order confirmation!🎉</h1>
+          <h1><strong>order confirmation!</strong>🎉</h1>
           <ShoppingCart
             onCheckout="True"
             cart={this.props.cart}

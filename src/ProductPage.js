@@ -46,20 +46,23 @@ class ProductPage extends Component {
       let productId = this.props.match.params.productid;
       console.log("productId", productId);
       return (
-        <div className="app-container">
-          <Product item={this.getItem(this.props.match.params.productid)}
-            addToCartCB={this.addToCart.bind(this)}
-            sale={this.props.constants.SALE_PERCENT}
-            showFull="True"/>
-          <ShoppingCart
-            onCheckout="False"
-            cart={this.props.cart}
-            constants={this.props.constants}
-            quantities={this.props.quantities}
-            removeAllCB={this.removeAll.bind(this)}
-            addToCartCB={this.addToCart.bind(this)}
-            removeOneCB={this.removeOne.bind(this)}/>
-        </div>
+        <span>
+          <h1><strong>BAWABE, INC.</strong></h1>
+          <div className="app-container">
+            <Product item={this.getItem(this.props.match.params.productid)}
+              addToCartCB={this.addToCart.bind(this)}
+              sale={this.props.constants.SALE_PERCENT}
+              showFull="True"/>
+            <ShoppingCart
+              onCheckout="False"
+              cart={this.props.cart}
+              constants={this.props.constants}
+              quantities={this.props.quantities}
+              removeAllCB={this.removeAll.bind(this)}
+              addToCartCB={this.addToCart.bind(this)}
+              removeOneCB={this.removeOne.bind(this)}/>
+          </div>
+        </span>
       )
     }
 }
