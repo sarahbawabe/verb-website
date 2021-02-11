@@ -1,42 +1,61 @@
 import React, {Component} from 'react';
 import './style.css';
 
+
+/** Models an item in the ShoppingCart. Stores its quantity in state so
+ * that it can re-render on quantity updates.
+ *
+ * SVGs from https://systemuicons.com/
+ */
 class CartItem extends Component {
     constructor(props) {
       super(props);
       this.state = {
           quantity: 1
       };
-      // this.addToCart = this.addToCart.bind(this)
     }
 
+    /** Handles the (-) button functionality, and determines if an item should
+     * be removed completely from cart based on its current quantity. */
     removeOne = (event) => {
-      if (this.props.quantity == 1) {
+      if (this.props.quantity == 1) { // if only one left, remove from cart instead
         this.removeFromCart()
       } else {
-        // console.log("remove one")
         this.props.removeOneCB(this.props.item)
       }
     }
 
+    /** Handles the (X) button functionality by calling the removeAll
+     * callback function. */
     removeFromCart = (event) => {
-      // console.log("remove")
       this.props.removeAllCB(this.props.item)
     }
 
+    /** Handles the add to cart functionality by calling the addToCart
+     * callback function and updating the CartItem's state accordingly. */
     addToCart = (event) => {
-      // console.log("add")
       this.setState({ quantity: this.state.quantity + 1})
       this.props.addToCartCB(this.props.item)
     }
 
+    /**
+     * Calculates the cost of an item based on its price and quantity.
+     * @param quantity : quantity of given item currently in cart
+     * @param price : price of purchasing one item
+     * @return total cost of CartItem
+     */
     getCost(quantity, price) {
       var cost = quantity * price
       return cost.toFixed(2)
     }
 
-    getPrice(item) {
-      if (item.onSale == "True") {
+    /**
+     * Renders the price of the item based on whether or not it's on sale.
+     * @param item : item whose price is to be rendered
+     * @return price of item
+     */
+    renderPrice(item) {
+      if (item.onSale == "True") { // if on sale, render (% off) and calculate new price
         var salePrice = (this.props.item.price * (1 - this.props.sale/100)).toFixed(2)
         return (
           <span>
@@ -44,15 +63,22 @@ class CartItem extends Component {
             <span className="sale-item"><h4>({this.props.sale}% off!)</h4></span>
           </span>
         )
-      } else {
+      } else { // if not on sale, render full price
         return (
           <h3>{this.props.quantity} x ${this.props.item.price}</h3>
         )
       }
     }
-    // <h3>Cost: ${this.getCost(this.state.quantity, this.props.item.price)}</h3> <div className="flex-row align-center">
 
     render() {
+      if (this.props.onCheckout == "True") { // if on checkout page, exclude quantity-change functionality
+        return (
+           <div className="checkout-item">
+            <h2><span className="teal-highlight">{this.props.item.name}</span></h2>
+            {this.renderPrice(this.props.item)}
+           </div>
+        );
+      } else {
        return (
           <div className="cart-item">
             <h2>
@@ -63,16 +89,14 @@ class CartItem extends Component {
             </h2>
             <div className="quantity-button-bar">
               <button onClick={this.removeOne}>&ndash;</button>
-              {this.getPrice(this.props.item)}
+              {this.renderPrice(this.props.item)}
               <button onClick={this.addToCart}>+</button>
             </div>
           </div>
-      );
+        );
+      }
     }
 
 }
-
-// <span className="button-content"><svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg"><g fill="none" fillRule="evenodd" stroke="#2a2e3b" strokeLinecap="round" stroke-linejoin="round" transform="translate(5 5)"><path d="m.5 10.5 10-10"/><path d="m10.5 10.5-10-10z"/></g></svg> remove</span>
-
 
 export default CartItem;

@@ -1,28 +1,29 @@
 import React, {Component} from 'react';
 import './style.css';
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
+/** Models a Product tile, used in the HomePage and on the ProductPage.
+ * Knowledgable of necessary callback functions so that it can handle
+ * addToCart functionality.
+ *
+ * SVGs from https://systemuicons.com/
+ */
 class Product extends Component {
     constructor(props) {
       super(props);
     }
 
+    /** Trigger callback function for addToCart. */
     addToCart = (event) => {
       this.props.addToCartCB(this.props.item);
     }
 
-    // renderProductPage = (event) => {
-    //   this.props.redirectCB(this.props.item);
-    // }
-
-    // loadImage = (imageName) => {
-    //   import(`./images/${imageName}`).then(image => {
-    //     return image // try using img and src and returning that?
-    //   });
-    // };
-
+    /** Renders the price of the item based on whether or not it's on sale.
+     * @param item : item whose price is to be rendered
+     * @return price of item
+     */
     handleSale(onSale) {
-      if (onSale == "True") {
+      if (onSale == "True") { // if on sale, calculate new price and mark as "ON SALE!"
         var salePrice = (this.props.item.price * (1 - this.props.sale/100)).toFixed(2)
         return (
           <span>
@@ -48,7 +49,7 @@ class Product extends Component {
     render() {
       let item = this.props.item
 
-      if (this.props.showFull == "True") {
+      if (this.props.showFull == "True") { // if on product page, show full item details
         return (
            <div className="product">
               <img src={item.image} className="product-img"></img>
@@ -61,7 +62,7 @@ class Product extends Component {
               </button>
           </div>
         );
-      } else {
+      } else { // if not on product page, render only image, name, and price
         return (
            <div className="product">
               <Link to={"/product/" + item.sku} className="unstyled-link">
@@ -79,4 +80,4 @@ class Product extends Component {
 
 }
 
-export default withRouter(Product);
+export default Product;

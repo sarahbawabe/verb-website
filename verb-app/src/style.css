@@ -1,10 +1,14 @@
-/* COLOR GUIDE:
-- olive green : #91B53F
-- yellow accent : rgb(255,243,102) | #FFF366
-- light yellow : 0.2 opacity of yellow acc
-- orange: #FFA52B
-*/
+/**********************************************
+COLOR GUIDE:
+- olive green:    #91B53F
+- teal blue:      rgb(94,231,225) | #5EE7E1
+- yellow:         rgb(255,243,102) | #FFF366
+- light yellow:   0.2 opacity of yellow accent
+- orange:         #FFA52B
 
+- base dark gray: #353535
+- medium gray:    #7E7E7E
+**********************************************/
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,900;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100&display=swap');
@@ -13,6 +17,7 @@ body {
   font-family: 'Lato', sans-serif;
   background-image: url('images/background1-01.png');
   background-size: 20%;
+  color: #353535;
 }
 
 h1 {
@@ -28,7 +33,7 @@ h3 {
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  font-size: 16px;
+  font-size: 17px;
   margin: 10px 0px;
 }
 
@@ -36,7 +41,7 @@ h4 {
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  font-size: 14px;
+  font-size: 15px;
   margin: 5px 0px;
 }
 
@@ -59,19 +64,10 @@ button, .button {
 }
 
 
-/* teal blue: #5EE7E1 */
-
-/* .product h2:hover {
-  color: #471D49;
-  transition: 0.5s ease;
-} */
-
-
-/* PRODUCT */
+/****** PRODUCT ******/
 .product {
   width: 25%;
   height: fit-content;
-  /* border: 1.5px solid lightgray; */
   border: 3px solid #FFF366;
   border-radius: 10px;
   margin: 10px;
@@ -85,8 +81,6 @@ button, .button {
 .product button:hover {
   background-color: rgb(94,231,225,0.2);
   border: 2px solid #5EE7E1;
-  /* background-color: rgb(255,243,102,0.2);
-  border: 2px solid #FFF366; */
   transition: all 0.2s ease-in-out;
 }
 
@@ -113,6 +107,11 @@ https://paulund.co.uk/css-animation-link-underline */
   width: 80%;
 }
 
+.product h2:hover {
+  color: #7E7E7E;
+  transition: 0.5s ease;
+}
+
 .product-img {
   width: 100%;
   height: 60%;
@@ -125,7 +124,7 @@ https://paulund.co.uk/css-animation-link-underline */
 
 
 
-/* SALE ITEMS */
+/****** SALE ITEMS ******/
 .sale-item h3 {
   color: #FFA52B;
   font-weight: 900;
@@ -138,10 +137,17 @@ https://paulund.co.uk/css-animation-link-underline */
 }
 
 
-/* CART ITEMS */
+
+/****** CART ITEMS ******/
+#shopping-cart {
+  width: 35%;
+  min-height: 100vh;
+  padding: 10px;
+  background-color: rgb(255,243,102,0.8);
+}
+
 .cart-item {
-  /* border-top: 3px dashed #FFEC5F; */
-  border-top: 1px solid black;
+  border-top: 1px solid #353535;
 }
 
 .quantity-button-bar {
@@ -156,7 +162,6 @@ https://paulund.co.uk/css-animation-link-underline */
 }
 .quantity-button-bar button {
   font-size: 24px;
-  /* border: 2px solid #FFE95B; */
   border: 0;
   padding: 0;
   width: 35px;
@@ -173,11 +178,31 @@ https://paulund.co.uk/css-animation-link-underline */
 
 .unstyled-link {
   text-decoration: none;
-  color: black;
+  color: #353535;
+}
+
+#shopping-cart .button {
+  background-color: rgb(94,231,225,0.2);
+  border: 2px solid #5EE7E1;
+}
+#shopping-cart .button:hover {
+  background-color: rgb(255,165,43,0.2);
+  border: 2px solid #FFA52B;
+  transition: all 0.2s ease-in-out;
 }
 
 
-/* OUTER COMPONENTS */
+/****** CHECKOUT PAGE ******/
+.checkout-page h1 {
+  margin: 40px 0px;
+  padding-bottom: 5px;
+  border-bottom: 4px solid #FFF366;
+}
+.checkout-item {
+  margin-bottom: 30px;
+}
+
+/****** OUTER COMPONENTS ******/
 .app-container {
   display: flex;
   width: 100%;
@@ -192,16 +217,8 @@ https://paulund.co.uk/css-animation-link-underline */
   justify-content: center;
 }
 
-#shopping-cart {
-  width: 35%;
-  min-height: 100vh;
-  padding: 10px;
-  /* background-color: #FCFFA4; */
-  background-color: rgb(255,243,102,0.8);
-}
 
-
-/* MISC FUNCTIONS */
+/****** MISC FUNCTIONS ******/
 .align-text-svg {
   display: flex;
   justify-content: center;
@@ -211,4 +228,12 @@ https://paulund.co.uk/css-animation-link-underline */
 .align-center {
   align-items: center;
   justify-content: center;
+}
+
+.yellow-highlight {
+  background-color: #FFF366;
+}
+
+.teal-highlight {
+  background-color: #5EE7E1;
 }
